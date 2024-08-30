@@ -35,6 +35,7 @@ export default function HomeScreen() {
   const tintColor = useThemeColor({}, "tint");
   const iconColor = useThemeColor({}, "icon");
   const [payments, setPayments] = useState<Member[]>([]);
+  const [algo, setAlgo] = useState<any>("");
 
   const { setGroup, group, session, grs } = useSession();
 
@@ -67,7 +68,7 @@ export default function HomeScreen() {
       }
     };
     fetchData();
-  }, [group, session, grs]);
+  }, [group, session, grs, algo]);
 
   const navigateToNewPage = () => {
     navigation.navigate({ name: "payments" });
@@ -83,6 +84,7 @@ export default function HomeScreen() {
       })
       .then((res) => {
         console.log("data : ", res.data);
+        setAlgo(algo);
       })
       .catch((err) => {
         console.log("err : ", err);

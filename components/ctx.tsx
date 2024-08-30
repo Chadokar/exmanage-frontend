@@ -67,7 +67,7 @@ export function SessionProvider({ children }: PropsWithChildren) {
           axios
             .post("/member", payload)
             .then((res) => {
-              // console.log(res.data);
+              console.log(res.data);
               setSession(res.data.access);
               navigation.navigate({ name: "(home)" });
             })

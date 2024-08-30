@@ -26,6 +26,8 @@ export default function TabLayout() {
     return <Redirect href="/auth" />;
   }
 
+  // console.log("session : ", session);
+
   return (
     <Tabs
       screenOptions={{
