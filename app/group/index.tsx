@@ -79,7 +79,7 @@ export default function HomeScreen() {
     axios
       .post(`/algorithm/${group?.id}`, {
         headers: {
-          Authorization: `Bearer ${session}`,
+          authorization: `Bearer ${session}`,
         },
       })
       .then((res) => {
