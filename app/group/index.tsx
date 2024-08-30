@@ -36,7 +36,7 @@ export default function HomeScreen() {
   const iconColor = useThemeColor({}, "icon");
   const [payments, setPayments] = useState<Member[]>([]);
 
-  const { setGroup, group, session } = useSession();
+  const { setGroup, group, session, grs } = useSession();
 
   const handlePress = (item: Member) => {
     console.log(`${item.lender} pressed`);
@@ -67,7 +67,7 @@ export default function HomeScreen() {
       }
     };
     fetchData();
-  }, [group, session]);
+  }, [group, session, grs]);
 
   const navigateToNewPage = () => {
     navigation.navigate({ name: "payments" });

@@ -32,7 +32,7 @@ export default function RootLayout() {
     return null;
   }
 
-  axios.defaults.baseURL = "http://10.145.17.147:8000";
+  axios.defaults.baseURL = " https://7754-203-110-242-31.ngrok-free.app";
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>

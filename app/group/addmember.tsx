@@ -18,7 +18,7 @@ export default function AddMember() {
   const textColor = useThemeColor({}, "text");
   const tintColor = useThemeColor({}, "tint");
   const iconColor = useThemeColor({}, "icon");
-  const { group, session } = useSession();
+  const { group, session, setGrs } = useSession();
 
   const handleRegister = () => {
     // Handle registration logic here
@@ -28,6 +28,10 @@ export default function AddMember() {
         { name: username, groupId: group?.id },
         { headers: { authorization: `Bearer ${session}` } }
       )
+      .then((res) => {
+        console.log(res.data);
+        setGrs(Math.random());
+      })
       .catch((err) => {
         console.log(err);
       });
