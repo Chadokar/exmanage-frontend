@@ -23,6 +23,8 @@ const AuthContext = createContext<{
   amount?: number | null;
   session?: string | null;
   isLoading: boolean;
+  grs: any;
+  setGrs: (grs: any) => void;
 }>({
   signIn: () => null,
   signOut: () => null,
@@ -32,6 +34,8 @@ const AuthContext = createContext<{
   amount: null,
   session: null,
   isLoading: false,
+  grs: null,
+  setGrs: () => null,
 });
 
 // This hook can be used to access the user info.
@@ -50,6 +54,7 @@ export function SessionProvider({ children }: PropsWithChildren) {
   const [[isLoading, session], setSession] = useStorageState("session");
   const [group, setGroup] = useState<Group | null>(null);
   const [amount, setAmount] = useState<number | null>(null);
+  const [grs, setGrs] = useState<any>(null);
   const navigation = useNavigation<{
     navigate: (route: { name: string }) => void;
   }>();
@@ -79,6 +84,8 @@ export function SessionProvider({ children }: PropsWithChildren) {
         amount,
         session,
         isLoading,
+        grs,
+        setGrs,
       }}
     >
       {children}

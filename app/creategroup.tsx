@@ -18,7 +18,7 @@ export default function CreateGorup() {
   const textColor = useThemeColor({}, "text");
   const tintColor = useThemeColor({}, "tint");
   const iconColor = useThemeColor({}, "icon");
-  const { group, session } = useSession();
+  const { group, session, setGrs } = useSession();
 
   const handleRegister = () => {
     // Handle registration logic here
@@ -31,6 +31,7 @@ export default function CreateGorup() {
       )
       .then((res) => {
         console.log(res.data);
+        setGrs(Math.random());
       })
       .catch((err) => {
         console.log(err);

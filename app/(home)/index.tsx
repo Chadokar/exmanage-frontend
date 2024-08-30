@@ -33,7 +33,7 @@ export default function HomeScreen() {
 
   // using "use" hook of react call api to get data
 
-  const { setGroup, session } = useSession();
+  const { setGroup, session, grs } = useSession();
   const [groups, setGroups] = useState<Group[]>([]);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function HomeScreen() {
         });
     };
     fetchData();
-  }, [session]);
+  }, [session, grs]);
 
   const handlePress = (item: { groupname: string; id: string }) => {
     setGroup({ name: item.groupname, id: item.id });
